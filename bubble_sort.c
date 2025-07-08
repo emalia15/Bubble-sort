@@ -8,22 +8,26 @@ void printArray(int arr[], int n) {
     printf("\n");
 }
 
-// Bubble sort dengan early stopping
+// Fungsi Bubble Sort dengan optimasi "early stopping"
 void bubbleSort(int arr[], int n) {
     int i, j, temp;
-    int swapped;
+    int swapped; // Penanda untuk mengetahui apakah terjadi pertukaran
 
     printf("Array awal:\n");
     printArray(arr, n);
     printf("\n");
 
+    // Loop utama (loop luar) untuk melakukan beberapa pass
     for (i = 0; i < n - 1; i++) {
         swapped = 0;  // Reset status pertukaran untuk pass ini
         printf("Pass %d:\n", i + 1);
 
+        // Loop dalam untuk membandingkan elemen bersebelahan
+        // Setiap pass melakukan n - 1 - i perbandingan
         for (j = 0; j < n - 1 - i; j++) {
+            // Jika elemen sekarang lebih besar dari elemen setelahnya
             if (arr[j] > arr[j + 1]) {
-                // Lakukan pertukaran jika perlu
+                // Lakukan pertukaran (swap)
                 temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
